@@ -1,0 +1,72 @@
+{
+  "name": "binance-consumer-microservice",
+  "version": "1.0.0",
+  "description": "Binance - Consumer - Microservice",
+  "main": "Build/App.js",
+  "types": "Build/App.d.ts",
+  "scripts": {
+    "fix-lint": "eslint --fix . --ext .ts",
+    "lint": "eslint . --ext .ts",
+    "migrate": "set -a && source ./.env && set +a && knex --knexfile ./Source/Config/KnexFileConfiguration.ts migrate:latest",
+    "migrate:rollback": "set -a && source ./.env && set +a && knex --knexfile ./Source/Config/KnexFileConfiguration.ts migrate:down",
+    "migrate:rollback:all": "set -a && source ./.env && set +a && knex --knexfile ./Source/Config/KnexFileConfiguration.ts migrate:rollback --all",
+    "migration:create": "set -a && source ./.env && set +a && knex migrate:make --knexfile ./Source/Config/KnexFileConfiguration.ts -x ts",
+    "seed": "set -a && source ./.env && set +a && knex --knexfile ./Source/Config/KnexFileConfiguration.ts seed:run",
+    "seed:create": "set -a && source ./.env && set +a && knex seed:make --knexfile ./Source/Config/KnexFileConfiguration.ts -x ts",
+    "check-types": "tsc --noEmit",
+    "dev": "cross-env ESBUILD_ENV=dev node esbuild.config.js & tsc-alias -w & node wait-and-watch.js",
+    "build": "tsc --noEmit && cross-env ESBUILD_ENV=prod node esbuild.config.js",
+    "start": "cross-env NODE_ENV=production node --env-file=.env Build/App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Necrelox/CRYPTO-VIZ-Binance-Scrapper.git"
+  },
+  "keywords": [
+    "binance",
+    "binance-consumer",
+    "consumer"
+  ],
+  "author": "Ruby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Necrelox/CRYPTO-VIZ-Binance-Consumer/issues"
+  },
+  "homepage": "https://github.com/Necrelox/CRYPTO-VIZ-Binance-Consumer#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.4",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "esbuild": "^0.19.11",
+    "esbuild-plugin-alias": "^0.2.1",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.490.0",
+    "@basalt-lab/basalt-logger": "^1.5.1",
+    "@faker-js/faker": "^8.3.1",
+    "@fastify/cookie": "^9.3.0",
+    "@fastify/cors": "^8.5.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/rate-limit": "^9.1.0",
+    "@fastify/swagger": "^8.13.0",
+    "@fastify/swagger-ui": "^2.1.0",
+    "@types/source-map-support": "^0.5.10",
+    "class-validator": "^0.14.1",
+    "class-validator-jsonschema": "^5.0.0",
+    "commander": "^11.1.0",
+    "cross-env": "^7.0.3",
+    "fastify": "^4.25.2",
+    "i18next": "^23.7.16",
+    "kafkajs": "^2.2.4",
+    "knex": "^3.1.0",
+    "pg": "^8.11.3",
+    "source-map-support": "^0.5.21"
+  }
+}
