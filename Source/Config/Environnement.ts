@@ -11,60 +11,37 @@ function CheckEnvVariable(target: unknown, propertyKey: string): void {
 }
 
 export interface IEnvironment {
-    DB_HOST: string;
-    DB_NAME: string;
-    DB_PASSWORD: string;
-    DB_PORT: number;
-    DB_USER: string;
-    COOKIE_SECRET: string;
-    HOST: string;
-    HTTP_PORT: number;
     NODE_ENV: string;
-    ORIGINS: string[];
-    PREFIX: string;
+
+    //////// REDPANDA //////
     RED_PANDA_BROKERS: string[];
-    WS_PORT: number;
+    ////////////////////////
+
+    ///////// AWS //////////
+    AWS_ACCESS_KEY_ID: string;
+    AWS_SECRET_ACCESS_KEY: string;
+    ////////////////////////
+
 }
 
 export class EnvironmentConfiguration {
     private static _instance: EnvironmentConfiguration;
 
     @CheckEnvVariable
-    public DB_HOST: string = process.env.DB_HOST || '';
-
-    @CheckEnvVariable
-    public DB_NAME: string = process.env.DB_NAME || '';
-
-    @CheckEnvVariable
-    public DB_PASSWORD: string = process.env.DB_PASSWORD || '';
-
-    @CheckEnvVariable
-    public DB_PORT: number = process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 0;
-
-    @CheckEnvVariable
-    public DB_USER: string = process.env.DB_USER || '';
-
-    @CheckEnvVariable
-    public COOKIE_SECRET: string = process.env.COOKIE_SECRET || '';
-
-    @CheckEnvVariable
-    public HOST: string = process.env.HOST || '';
-
-    @CheckEnvVariable
-    public HTTP_PORT: number = process.env.HTTP_PORT ? parseInt(process.env.HTTP_PORT) : 0;
-
-    @CheckEnvVariable
     public NODE_ENV: string = process.env.NODE_ENV || '';
 
-    public ORIGINS: string[] = process.env.ORIGINS ? process.env.ORIGINS.split(',') : [];
-
-    public PREFIX: string = process.env.PREFIX || '';
-
+    //////// REDPANDA //////
     @CheckEnvVariable
     public RED_PANDA_BROKERS: string[] = process.env.RED_PANDA_BROKERS ? process.env.RED_PANDA_BROKERS.split(',') : [];
+    ////////////////////////
+
+    ///////// AWS //////////
+    @CheckEnvVariable
+    public AWS_ACCESS_KEY_ID: string = process.env.AWS_ACCESS_KEY_ID || '';
 
     @CheckEnvVariable
-    public WS_PORT: number = process.env.WS_PORT ? parseInt(process.env.WS_PORT) : 0;
+    public AWS_SECRET_ACCESS_KEY: string = process.env.AWS_SECRET_ACCESS_KEY || '';
+    ////////////////////////
 
     public static get instance(): EnvironmentConfiguration {
         if (!EnvironmentConfiguration._instance)

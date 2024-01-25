@@ -11,12 +11,7 @@ export class RedPandaConsumer {
 
     private constructor() {
         this._kafka = new Kafka(kafkaConfiguration);
-        this._consumer = this._kafka.consumer({
-            groupId: packageJsonConfiguration.name,
-            // minBytes: 9500000,
-            // maxBytes: 10000000,
-            // maxWaitTimeInMs: 10000,
-        });
+        this._consumer = this._kafka.consumer({ groupId: packageJsonConfiguration.name });
     }
 
     public static get instance(): RedPandaConsumer {

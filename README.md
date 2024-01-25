@@ -1,1 +1,1 @@
-# CRYPTO-VIZ-Binance-Consumer
+# CRYPTO VIZ - Consumer
