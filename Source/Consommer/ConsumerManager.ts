@@ -4,7 +4,7 @@ import { BinanceConsumer } from '@/Consommer/Strategy';
 export class ConsumerManager {
     private readonly _consumers: IDataConsumer[] = [];
 
-    constructor() {
+    public constructor() {
         this._consumers = this.initializeConsumer();
     }
 

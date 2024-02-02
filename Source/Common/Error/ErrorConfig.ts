@@ -29,7 +29,7 @@ const ErrorConfigKeyCode: { [p: string]: number } = {
 };
 
 export class ErrorConfig extends ErrorEntity {
-    constructor(e: {
+    public constructor(e: {
         key: string,
         detail?: unknown,
         interpolation?: { [key: string]: unknown }
