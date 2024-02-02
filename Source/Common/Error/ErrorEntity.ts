@@ -8,7 +8,7 @@ export class ErrorEntity extends Error {
     private readonly _detail?: unknown;
     private readonly _stack: string | undefined;
 
-    constructor(error: {
+    public constructor(error: {
         code: number,
         messageKey: string,
         detail?: unknown

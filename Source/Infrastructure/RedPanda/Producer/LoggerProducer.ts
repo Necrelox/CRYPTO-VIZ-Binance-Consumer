@@ -1,5 +1,5 @@
-import { Topics } from '@/Infrastructure/External/RedPanda';
-import { RedPandaProducer } from '@/Infrastructure/External/RedPanda/Producer';
+import { RedPandaProducer } from '@/Infrastructure/RedPanda/Producer';
+import {  Topics } from '@/Infrastructure/RedPanda';
 import { packageJsonConfiguration } from '@/Config';
 
 export class LoggerProducer {
