@@ -5,14 +5,12 @@ import { S3Client, PutObjectCommand, } from '@aws-sdk/client-s3';
 import { IDataConsumer } from '@/Consommer/Interface';
 import { IBinanceCryptoDataDTO } from '@/Data/DTO';
 import { packageJsonConfiguration } from '@/Config';
-import { RedPandaConsumer } from '@/Infrastructure/External/RedPanda/Consommer';
-import { DataLakeTriggerProducer } from '@/Infrastructure/External/RedPanda/Producer';
+import { RedPandaConsumer } from '@/Infrastructure/RedPanda/Consommer';
 
 export class BinanceConsumer implements IDataConsumer {
     private readonly _redPandaConsumer: RedPandaConsumer = RedPandaConsumer.instance;
 
     public async start(): Promise<void> {
-        const dataLakeTriggerProducer: DataLakeTriggerProducer = new DataLakeTriggerProducer();
         await this._redPandaConsumer.connect();
         await this._redPandaConsumer.subscribe(['binance-ws-market-data']);
         const s3: S3Client = new S3Client({
@@ -38,7 +36,7 @@ export class BinanceConsumer implements IDataConsumer {
         // });
 
         await this._redPandaConsumer.eachMessage(async (message: KafkaMessage): Promise<void> => {
-            const rawData: IBinanceCryptoDataDTO = JSON.parse(message.value!.toString()).data;
+            const rawData: IBinanceCryptoDataDTO = JSON.parse(message.value!.toString());
             const key: string = `data/${new Date().toLocaleDateString().split('/').reverse().join('-')}/${randomUUID()}.json`;
             await s3.send(new PutObjectCommand({
                 Bucket: 'CryptoViz',
@@ -50,8 +48,6 @@ export class BinanceConsumer implements IDataConsumer {
                 },
                 Body: JSON.stringify(rawData)
             }));
-            // todo : produce to kafka event data saved (avec la Key (pour recuperer l'objet à traiter))
-            await dataLakeTriggerProducer.execute(key);
         });
     }
 

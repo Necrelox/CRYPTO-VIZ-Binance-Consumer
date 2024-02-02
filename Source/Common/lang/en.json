@@ -8,37 +8,18 @@
       "REDPANDA_CONSUMER_CONNECTED": "RedPanda Consumer connected.",
       "REDPANDA_CONSUMER_DISCONNECTED": "RedPanda Consumer disconnected."
     },
-    "database": {
-      "DB_CONNECTED": "Database connected.",
-      "DB_DISCONNECTED": "Database disconnected.",
-      "DB_MIGRATIONS_RUN": "Database migrations run.",
-      "DB_MIGRATIONS_ROLLBACK_ALL": "Database migrations rollback all."
-    },
     "consumer": {
       "CONSUMER_START": "Consumer started.",
       "CONSUMER_STOP": "Consumer stopped."
     },
     "signal": {
       "SIGINT": "SIGINT (Ctrl-C) received."
-    },
-    "httpServer": {
-      "HTTP_SERVER_LISTENING": "HTTP server listening on port {{port}} in {{mode}} mode. (Prefix: {{prefix}}) PID: {{pid}}",
-      "HTTP_SERVER_CLOSE": "HTTP server closed."
     }
   },
   "error": {
     "errorConfig": {
-      "DB_HOST_NOT_FOUND": "DB_HOST variable d'environnement non trouvée.",
-      "DB_NAME_NOT_FOUND": "DB_NAME variable d'environnement non trouvée.",
-      "DB_PASSWORD_NOT_FOUND": "DB_PASSWORD variable d'environnement non trouvée.",
-      "DB_USER_NOT_FOUND": "DB_USER variable d'environnement non trouvée.",
-      "DB_PORT_NOT_FOUND": "DB_PORT variable d'environnement non trouvée.",
-      "COOKIE_SECRET_NOT_FOUND": "COOKIE_SECRET variable d'environnement non trouvée.",
-      "HOST_NOT_FOUND": "HOST variable d'environnement non trouvée.",
-      "HTTP_PORT_NOT_FOUND": "HTTP_PORT variable d'environnement non trouvée.",
       "NODE_ENV_NOT_FOUND": "NODE_ENV variable d'environnement non trouvée.",
-      "RED_PANDA_BROKER_NOT_FOUND": "RED_PANDA_BROKER variable d'environnement non trouvée.",
-      "WS_PORT_NOT_FOUND": "WS_PORT variable d'environnement non trouvée."
+      "RED_PANDA_BROKER_NOT_FOUND": "RED_PANDA_BROKER variable d'environnement non trouvée."
     },
     "errorInfrastructure": {
       "KAFKA_PRODUCER_CONNECTION_ERROR": "Kafka producer connection error.",
@@ -49,34 +30,6 @@
       "KAFKA_CONSUMER_IS_NOT_CONNECTED": "Kafka consumer is not connected.",
       "KAFKA_CONSUMER_SUBSCRIBE_ERROR": "Kafka consumer subscribe error.",
       "KAFKA_CONSUMER_DISCONNECT_ERROR": "Kafka consumer disconnect error."
-    },
-    "errorValidator": {
-    },
-    "errorDatabase": {
-      "DB_CONNECTION_ERROR": "Database connection error.",
-      "DB_DISCONNECT_ERROR": "Database disconnect error.",
-      "MODEL_NOT_CREATED": "Model {{tableName}} not created.",
-      "MODEL_UNIQUE_CONSTRAINT_ERROR": "Model {{tableName}} unique constraint error [{{constraint}}].",
-      "MODEL_NOT_FOUND": "Model {{tableName}} not found.",
-      "MODEL_NOT_UPDATED": "Model {{tableName}}  not updated.",
-      "MODEL_NOT_DELETED": "Model {{tableName}} not deleted.",
-      "OTHER_DATABASE_ERROR": "Other database error."
-    },
-    "errorUseCase": {
-      "PASSWORD_NOT_VALID": "The password is not valid."
-    }
-  },
-  "http": {
-    "plugin": {
-      "RateLimitPlugin": {
-        "RATE_LIMIT": "Rate limit {{max}} exceeded. Try again in {{timeWindow}} seconds."
-      }
-    },
-    "handler": {
-      "statusHandler": {
-        "health": "OK"
-      }
     }
   }
 }
-

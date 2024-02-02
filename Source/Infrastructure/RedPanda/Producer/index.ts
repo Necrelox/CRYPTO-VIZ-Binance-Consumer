@@ -1,3 +1,3 @@
 export * from './RedPandaProducer';
 export * from './LoggerProducer';
-export * from './DataLakeTriggerProducer';
+export * from './BinanceProducer';

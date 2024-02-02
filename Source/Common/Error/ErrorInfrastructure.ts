@@ -23,7 +23,7 @@ const ErrorInfrastructureKeyCode: { [p: string]: number } = {
 };
 
 export class ErrorInfrastructure extends ErrorEntity {
-    constructor(e: {
+    public constructor(e: {
         key: string,
         detail?: unknown,
         interpolation?: { [key: string]: unknown }
