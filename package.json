@@ -29,21 +29,21 @@
   },
   "homepage": "https://github.com/Necrelox/CRYPTO-VIZ-Consumer#readme",
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "esbuild": "^0.19.11",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "esbuild": "^0.19.12",
     "esbuild-plugin-alias": "^0.2.1",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.499.0",
+    "@aws-sdk/client-s3": "^3.514.0",
     "@basalt-lab/basalt-logger": "^1.5.1",
     "@types/source-map-support": "^0.5.10",
     "commander": "^11.1.0",
     "cross-env": "^7.0.3",
-    "i18next": "^23.7.18",
+    "i18next": "^23.8.2",
     "kafkajs": "^2.2.4",
     "source-map-support": "^0.5.21"
   }

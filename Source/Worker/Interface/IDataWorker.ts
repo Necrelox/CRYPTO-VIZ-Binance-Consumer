@@ -1,4 +1,4 @@
-export interface IDataConsumer {
+export interface IDataWorker {
     start(): void;
     stop(): void;
 }

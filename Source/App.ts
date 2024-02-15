@@ -11,13 +11,13 @@ import {
 import { RedPandaProducer } from '@/Infrastructure/RedPanda/Producer';
 import { RedPandaLoggerStrategy } from '@/Common';
 import { ErrorEntity } from '@/Common/Error';
-import { ConsumerManager } from '@/Consommer/ConsumerManager';
+import { WorkerManager } from '@/Worker/WorkerManager';
 
 if (EnvironmentConfiguration.env.NODE_ENV === 'development')
     require('source-map-support/register');
 
 class App {
-    private readonly _consumerManager: ConsumerManager = new ConsumerManager();
+    private readonly _workerManager: WorkerManager = new WorkerManager();
 
     public async connectToRedPanda(): Promise<void> {
         await RedPandaProducer.instance.connect();
@@ -32,13 +32,13 @@ class App {
         BasaltLogger.log(I18n.translate('app.redpanda.REDPANDA_PRODUCER_DISCONNECTED', Language.EN));
     }
 
-    public runConsumer(): void {
-        this._consumerManager.start();
+    public runWorker(): void {
+        this._workerManager.start();
         BasaltLogger.log(I18n.translate('app.consumer.CONSUMER_START', Language.EN));
     }
 
-    public stopConsumer(): void {
-        this._consumerManager.stop();
+    public stopWorker(): void {
+        this._workerManager.stop();
         BasaltLogger.log(I18n.translate('app.consumer.CONSUMER_STOP', Language.EN));
     }
 
@@ -47,7 +47,7 @@ class App {
         await this.connectToRedPanda();
 
         // Start Consumer
-        this.runConsumer();
+        this.runWorker();
 
         BasaltLogger.log({
             message: I18n.translate('app.start', Language.EN, {
@@ -61,7 +61,7 @@ class App {
         await this.disconnectFromRedPanda();
 
         // Stop Consumer
-        this.stopConsumer();
+        this.stopWorker();
 
         BasaltLogger.log(I18n.translate('app.stop', Language.EN, {
             name: packageJsonConfiguration.name
