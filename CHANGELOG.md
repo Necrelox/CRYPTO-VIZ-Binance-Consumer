@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Necrelox/CRYPTO-VIZ-Consumer/compare/v1.0.0...v1.1.0) (2024-02-15)
+
+
+### Features
+
+* update + add new data type ([f35831e](https://github.com/Necrelox/CRYPTO-VIZ-Consumer/commit/f35831e081610514a851fadb4d77ccb925bc891e))
+
 ## 1.0.0 (2024-02-02)
 
 
